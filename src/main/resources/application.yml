@@ -1,0 +1,29 @@
+server:
+ port: 8090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: 12887045ffgttf
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    pathmatch:
+#      配置swagger
+      matching-strategy: ant_path_matcher
+
+mybatis-plus:
+  configuration:
+   log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: AUTO
+      table-prefix:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:com/demo/dao/*Mapper.xml
+type-aliases-package: com.demo.domain
+
+
